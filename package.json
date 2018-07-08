@@ -1,0 +1,17 @@
+{
+  "name": "fbchatbot",
+  "version": "1.0.0",
+  "description": "Facebook messenger chat bot for /ieeesbmanipal",
+  "author": "Arsh Jain",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "apiai": "^3.0.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.5",
+    "request": "^2.87.0"
+  }
+}
