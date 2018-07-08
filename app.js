@@ -1,5 +1,5 @@
 'use strict';
-const PAGE_ACCESS_TOKEN = "EAADQjWZBVSGUBABqQErKICexF47WMjX3CT1Ekp7LMZAm9oudHOjx8xqrjUHcWhxZBguXUZCjmEJzGuejN3Y5w8czhZAnrK1KkQWz8MuFP4wzz3vC3DiQiKZAzkTtxTkiGUbXLEBj403X4re0zTfytEFTUvC17ZBgOJwvrhYVzfnDvvPcCGNNgP8";
+const PAGE_ACCESS_TOKEN = "EAADQjWZBVSGUBACD0c2NZBQZAQAO5Fyh500LyjtOIK1ZB6ZAB7aK1tZBAZAkMnfZCsm0bqdpbZA0clcZClDs3N7dbA8l4wt39zf4c4OPIF5xStwCPzhCeUrKfj9jv8x3hQJ0PcEqLZC06zsz0w1LXEV7i8kP6B2CiXS4GPsZCBitgZBx5QQZDZD";
 const APIAI_TOKEN = "8103a2d936e84c66a402e331d4c824c6";
 
 const express = require('express');
@@ -26,7 +26,7 @@ app.get('/webhook', (req, res) => {
   if (req.query['hub.mode'] && req.query['hub.verify_token'] === 'verify_bot_token') {
     res.status(200).send(req.query['hub.challenge']);
   } else {
-    res.status(403).send("Verification Token Mismatch");
+    res.status(403).end();
   }
 });
 
@@ -36,6 +36,7 @@ app.post('/webhook', (req, res) => {
     req.body.entry.forEach((entry) => {
       entry.messaging.forEach((event) => {
         if (event.message && event.message.text) {
+          console.log(event);
           receivedMessage(event);
         }
       });
